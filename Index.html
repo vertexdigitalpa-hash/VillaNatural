@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Villa Natural | Tienda</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#f6f4ef;
+  color:#26351f;
+}
+
+header{
+  background:#183c25;
+  color:white;
+  padding:25px 18px;
+  text-align:center;
+}
+
+.logo{
+  font-size:32px;
+  font-weight:bold;
+}
+
+.subtitle{
+  margin-top:6px;
+  font-size:14px;
+  opacity:.9;
+}
+
+.hero{
+  padding:35px 20px;
+  text-align:center;
+  background:#e5eadc;
+}
+
+.hero h1{
+  font-size:30px;
+  margin-bottom:10px;
+}
+
+.hero p{
+  font-size:16px;
+  color:#52604d;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:25px 15px 100px;
+}
+
+.section-title{
+  font-size:24px;
+  margin:15px 0 20px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:15px;
+}
+
+.product{
+  background:white;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.product-image{
+  height:150px;
+  background:#dfe5d7;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:55px;
+}
+
+.product-info{
+  padding:15px;
+}
+
+.product h3{
+  font-size:17px;
+  margin-bottom:6px;
+}
+
+.price{
+  font-weight:bold;
+  color:#183c25;
+  font-size:18px;
+  margin-bottom:12px;
+}
+
+button{
+  border:none;
+  cursor:pointer;
+}
+
+.add{
+  width:100%;
+  padding:11px;
+  border-radius:10px;
+  background:#183c25;
+  color:white;
+  font-weight:bold;
+}
+
+.cart{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:white;
+  padding:15px;
+  box-shadow:0 -3px 15px rgba(0,0,0,.15);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:10;
+}
+
+.cart button{
+  background:#25d366;
+  color:white;
+  padding:13px 18px;
+  border-radius:12px;
+  font-weight:bold;
+}
+
+#count{
+  font-weight:bold;
+}
+
+.notice{
+  margin-top:25px;
+  padding:18px;
+  background:#fff;
+  border-left:5px solid #183c25;
+  border-radius:10px;
+  font-size:14px;
+}
+
+footer{
+  background:#183c25;
+  color:white;
+  text-align:center;
+  padding:25px;
+  margin-top:20px;
+}
+
+@media(max-width:500px){
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .product-image{
+    height:120px;
+  }
+
+  .logo{
+    font-size:27px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🌿 Villa Natural</div>
+  <div class="subtitle">Productos hechos con dedicación</div>
+</header>
+
+<section class="hero">
+  <h1>Bienvenido a Villa Natural</h1>
+  <p>Explora nuestro catálogo y realiza tu pedido fácilmente.</p>
+</section>
+
+<div class="container">
+
+  <h2 class="section-title">🍰 Nuestros productos</h2>
+
+  <div class="products">
+
+    <div class="product">
+      <div class="product-image">🍮</div>
+      <div class="product-info">
+        <h3>Flan de Caramelo</h3>
+        <div class="price">$2.50</div>
+        <button class="add" onclick="addProduct('Flan de Caramelo',2.50)">
+          Agregar
+        </button>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-image">🍫</div>
+      <div class="product-info">
+        <h3>Chocoflan</h3>
+        <div class="price">$3.50</div>
+        <button class="add" onclick="addProduct('Chocoflan',3.50)">
+          Agregar
+        </button>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-image">🥭</div>
+      <div class="product-info">
+        <h3>Mousse de Maracuyá</h3>
+        <div class="price">$2.50</div>
+        <button class="add" onclick="addProduct('Mousse de Maracuyá',2.50)">
+          Agregar
+        </button>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-image">🍋</div>
+      <div class="product-info">
+        <h3>Mousse de Limón</h3>
+        <div class="price">$2.50</div>
+        <button class="add" onclick="addProduct('Mousse de Limón',2.50)">
+          Agregar
+        </button>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-image">🍪</div>
+      <div class="product-info">
+        <h3>Galleta Grande</h3>
+        <div class="price">$0.75</div>
+        <button class="add" onclick="addProduct('Galleta Grande',0.75)">
+          Agregar
+        </button>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-image">🍪</div>
+      <div class="product-info">
+        <h3>Galleta Chica</h3>
+        <div class="price">$0.75</div>
+        <button class="add" onclick="addProduct('Galleta Chica',0.75)">
+          Agregar
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="notice">
+    <strong>📦 ¿Compras para tu negocio?</strong><br><br>
+    Este catálogo puede utilizarse para pedidos de comercios,
+    minimarkets y clientes autorizados.
+  </div>
+
+</div>
+
+<div class="cart">
+  <div>
+    🛒 Pedido:
+    <span id="count">0</span> productos
+  </div>
+
+  <button onclick="sendWhatsApp()">
+    Pedir por WhatsApp
+  </button>
+</div>
+
+<footer>
+  <strong>Villa Natural</strong>
+  <br><br>
+  Calidad • Sabor • Innovación
+</footer>
+
+<script>
+
+let cart = [];
+
+function addProduct(name, price){
+
+  cart.push({
+    name:name,
+    price:price
+  });
+
+  document.getElementById("count").innerText = cart.length;
+
+  alert(name + " agregado al pedido.");
+}
+
+function sendWhatsApp(){
+
+  if(cart.length === 0){
+    alert("Agrega productos al pedido primero.");
+    return;
+  }
+
+  let message = "🌿 *PEDIDO VILLA NATURAL*%0A%0A";
+
+  let total = 0;
+
+  cart.forEach((product, index) => {
+
+    message +=
+      (index + 1) +
+      ". " +
+      product.name +
+      " - $" +
+      product.price.toFixed(2) +
+      "%0A";
+
+    total += product.price;
+  });
+
+  message +=
+    "%0A💰 *Total: $" +
+    total.toFixed(2) +
+    "*%0A%0A" +
+    "Hola Villa Natural, quiero realizar este pedido.";
+
+  /*
+  CAMBIA ESTE NÚMERO POR EL WHATSAPP
+  DE VILLA NATURAL.
+
+  Ejemplo:
+  50760000000
+  */
+
+  let phone = "50760000000";
+
+  let url =
+    "https://wa.me/" +
+    phone +
+    "?text=" +
+    message;
+
+  window.open(url, "_blank");
+}
+
+</script>
+
+</body>
+  </html>
